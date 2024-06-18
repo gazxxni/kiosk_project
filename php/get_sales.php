@@ -4,14 +4,13 @@ require 'config.php';
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$date = isset($_GET['date']) ? $_GET['date'] : '';
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM sales";
-$result = $conn->query($sql);
+$sql = "SELECT date, item_name, quantity, total_price FROM sales WHERE date = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $date);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $sales = array();
 if ($result->num_rows > 0) {
