@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".InventoryManagementActivity" >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFC107"
+        app:menu="@menu/menu_main"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextColor="@android:color/white">
+
+        <Button
+            android:id="@+id/btn_inventory_management"
+            style="@style/ToolbarButtonStyle"
+            android:text="재고관리" />
+
+        <Button
+            android:id="@+id/btn_promotions"
+            style="@style/ToolbarButtonStyle"
+            android:text="프로모션" />
+
+        <Button
+            android:id="@+id/btn_sales"
+            style="@style/ToolbarButtonStyle"
+            android:text="매출현황" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
